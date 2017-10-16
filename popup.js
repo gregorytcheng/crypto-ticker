@@ -1,20 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var checkPageButton = document.getElementById('checkPage');
-  checkPageButton.addEventListener('click', function() {
 
-    chrome.tabs.getSelected(null, function(tab) {
-      d = document;
+  var cryptos = ["BTC", "ETH", "XRP"]
 
-      var f = d.createElement('form');
-      f.action = 'http://gtmetrix.com/analyze.html?bm';
-      f.method = 'post';
-      var i = d.createElement('input');
-      i.type = 'hidden';
-      i.name = 'url';
-      i.value = tab.url;
-      f.appendChild(i);
-      d.body.appendChild(f);
-      f.submit();
+  $.getJSON("https://api.coinmarketcap.com/v1/ticker/", function(data){
+
+
+
+          for (x = 0; x < 1170; x++){
+          $("#values").append("<tr>")
+
+          $("#values").append("<th>" + data[x].name + "</th>")
+          $("#values").append("<th>" + data[x].symbol + "</th>")
+          $("#values").append("<th>" + data[x].price_usd + "</th>")
+
+
+          $("#values").append("</tr>")
+          }
+
+
+          //$("#values").append("eeee" + data[0].name)
+
+
+
+
     });
-  }, false);
+
+
+
+
+
+
+
+
+
+
+
 }, false);
