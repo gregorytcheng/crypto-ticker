@@ -1,25 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  var cryptos = ["BTC", "ETH", "XRP"]
+  var cryptos = ["BTC", "ETH", "LTC"]
 
   $.getJSON("https://api.coinmarketcap.com/v1/ticker/", function(data){
 
 
 
-          for (x = 0; x < 1170; x++){
+          for (x = 0; x < 10; x++){
+
           $("#values").append("<tr>")
 
-          $("#values").append("<th>" + data[x].name + "</th>")
-          $("#values").append("<th>" + data[x].symbol + "</th>")
-          $("#values").append("<th>" + data[x].price_usd + "</th>")
-
+          $("#values").append("<td>" + data[x].name + "</td>")
+          $("#values").append("<td>" + data[x].symbol + "</td>")
+          $("#values").append("<td>" + data[x].price_usd + "</td>")
 
           $("#values").append("</tr>")
           }
-
-
-          //$("#values").append("eeee" + data[0].name)
-
 
 
 
